@@ -37,10 +37,10 @@ func main() {
 		}
 
 		if info.Name() != "images" {
-			filename := info.Name()
+			filename := "icon-" + info.Name()
 			public_id := strings.TrimSuffix(filename, path.Ext(filename))
 			resp, err := cld.Upload.Upload(ctx, file_path, uploader.UploadParams{PublicID: public_id,
-				Transformation: "q_auto"})
+				Transformation: "c_scale,q_auto,w_32,q_auto"})
 			if err != nil {
 				fmt.Println(err)
 			} else {
